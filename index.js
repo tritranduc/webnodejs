@@ -3,7 +3,7 @@ var http = require('http');
 var path = require('path');
 var views_folder = path.join(__dirname,"./views")
 var app = express()
-var port = 8000
+var port = process.env.port||8000
 var server = http.createServer(app)
 console.log(views_folder)
 
