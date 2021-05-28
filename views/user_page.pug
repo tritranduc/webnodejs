@@ -1,0 +1,14 @@
+h1 this is the user page 
+form.seach-form(action="/users/search")
+  input(name="name", type="text", placeholder="name")
+  input(name="age", type="text", placeholder="age")
+  input(type="submit")
+h2 all user 
+ul
+    if result
+        h1 result
+        each val in result
+            h4= val.name_user +"   ,   "+val.age  
+    else
+        each val in user 
+            li= val.name_user +"  ,   "+ val.age 
