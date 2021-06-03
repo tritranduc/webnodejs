@@ -1,10 +1,11 @@
 var express = require("express")
 var http = require('http');
 var path = require('path');
+var reload = require("reload")
 var views_folder = path.join(__dirname,"./views")
 var app = express()
 var port = process.env.PORT||8000
-var server = http.createServer(app)
+
 console.log(views_folder)
 
 var users = [{name_user:"User1",age:11},
@@ -38,6 +39,8 @@ app.get("/users/search",(req,res)=>{
     res.render("user_page",{result:result})
 })
 
+reload(app)
+var server = http.createServer(app)
 server.listen(port,()=>{
     console.log("app is start in port : "+port)
 })
